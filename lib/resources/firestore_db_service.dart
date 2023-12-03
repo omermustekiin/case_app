@@ -16,7 +16,6 @@ class CloudFirestoreMethods {
   }
 
   ///GET METHODS
-
   Future getUserData() async {
     DocumentSnapshot snap = await firebaseFirestore
         .collection("users")
@@ -32,7 +31,6 @@ class CloudFirestoreMethods {
   }
 
   ///UPDATE METHODS
-
   Future updateUserName({
     required String nameControllerText,
   }) async {

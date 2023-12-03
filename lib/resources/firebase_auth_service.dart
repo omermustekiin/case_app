@@ -40,29 +40,6 @@ class AuthMethods {
     return output;
   }
 
-  Future<String> signInUser({
-    required String email,
-    required String password,
-  }) async {
-    email.trim();
-    password.trim();
-    String output = "Something went wrong!";
-
-    if (email != "" && password != "") {
-      try {
-        await firebaseAuth.signInWithEmailAndPassword(
-            email: email, password: password);
-
-        output = "success";
-      } on FirebaseAuthException catch (e) {
-        output = e.message.toString();
-      }
-    } else {
-      output = "Please fill the all blanks";
-    }
-    return output;
-  }
-
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
   }
