@@ -12,45 +12,55 @@ class YouAreInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double sw = MediaQuery.sizeOf(context).width;
 
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
-
-        appBar: const AppBarWidget(),
-        body: SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 5.0, right: 5.0, top: 70, bottom: 50),
-                child: MyTextColumnWidget(haveSpace:false, title: 'You Are In!', subTitle: 'We created your account successfully. Now you can go to the next step and create your profile.',),
+      appBar: const AppBarWidget(),
+      body: SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 5.0, right: 5.0, top: 70, bottom: 50),
+              child: MyTextColumnWidget(
+                haveSpace: false,
+                title: 'You Are In!',
+                subTitle:
+                    'We created your account successfully. Now you can go to the next step and create your profile.',
               ),
+            ),
 
-              SizedBox(
-                  width: sw,
-                  height: 200,
-                  child: Image.asset('assets/images/you_are_in.png', fit: BoxFit.cover,)),
+            SizedBox(
+                width: sw,
+                height: 200,
+                child: Image.asset(
+                  'assets/images/you_are_in.png',
+                  fit: BoxFit.cover,
+                )),
 
-              const SizedBox(height: 50,),
+            const SizedBox(
+              height: 50,
+            ),
 
-              ///Create Profile Button
-              SizedBox(
-                  width: sw - 50,
-                  height: 45,
-                  child: MainButtonWidget(onPressed: (){
-
+            ///Create Profile Button
+            SizedBox(
+                width: sw - 50,
+                height: 45,
+                child: MainButtonWidget(
+                  onPressed: () {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const CreateOrEditProfileScreen()),
+                          builder: (context) =>
+                              const CreateOrEditProfileScreen()),
                     );
-
-                  }, haveRadius: true,child: const Text("Create Profile"),))
-
-            ],
-          ),
+                  },
+                  haveRadius: true,
+                  child: const Text("Create Profile"),
+                ))
+          ],
         ),
-
-      );
-
+      ),
+    );
   }
 }

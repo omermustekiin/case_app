@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
-
-import '../models/user_details_model.dart';
+import '../controllers/getx_user_details_controller.dart';
 import '../providers/user_provider.dart';
 
 class GenderBoxesWidget extends StatefulWidget {
@@ -11,15 +12,16 @@ class GenderBoxesWidget extends StatefulWidget {
   const GenderBoxesWidget({super.key, required this.controller});
 
   @override
-  _GenderBoxesWidgetState createState() => _GenderBoxesWidgetState();
+  GenderBoxesWidgetState createState() => GenderBoxesWidgetState();
 }
 
-class _GenderBoxesWidgetState extends State<GenderBoxesWidget> {
+class GenderBoxesWidgetState extends State<GenderBoxesWidget> {
   @override
   Widget build(BuildContext context) {
-    Provider.of<UserDetailsProvider>(context).getUserData();
-    UserDetailsModel? userDetails =
-        Provider.of<UserDetailsProvider>(context).userDetails;
+    final UserDetailsController userDetailsController =
+    Get.find<UserDetailsController>();
+    userDetailsController.getUserData();
+    //Provider.of<UserDetailsProvider>(context).getUserData();
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
